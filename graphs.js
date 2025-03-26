@@ -1,5 +1,3 @@
-const apiUrl = "https://decision.cs.taltech.ee/electricity/data/ed9f4fcf0bfb1afa1741424674";
-
-d3.json(apiUrl).then(data => {
+d3.dsv(";", "datasets/d8cd1b7c670501c41742115495.csv").then(function(data) {
     console.log(data)
 })
