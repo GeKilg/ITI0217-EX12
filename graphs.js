@@ -38,7 +38,7 @@ d3.dsv(";", "datasets/e19ce9f7cd6985d21742127622.csv").then(function(data) {
         .attr("text-anchor", "middle")
         .style("font-size", "16px")
         .style("font-family", "sans-serif")
-        .text("Ühe majapidamise 100 päeva tarbimine 24 tunni lõikes")
+        .text("Ühe majapidamise 100 päeva tarbimine 24 tunni lõikes (kWh)")
         .append("tspan")
         .attr("x", width/2)
         .attr("dy", "1.5em")
@@ -172,12 +172,29 @@ function updateChart(dayToRetrieve) {
       .range([innerRadius, outerRadius]);
 
     radialArea.outerRadius(d => rScale(d.consumption));
+
+    const ticks = rScale.ticks(5).slice(1);
     g.selectAll(".tick-circle")
-      .data(rScale.ticks(5).slice(1))
+      .data(ticks)
       .join("circle")
         .attr("class", "tick-circle")
+        .attr("r", d => rScale(d))
+        .attr("fill", "none")
+        .attr("stroke", "#ccc")
       .transition().duration(1000)
         .attr("r", d => rScale(d));
+    
+    g.selectAll(".tick-label")
+      .data(ticks)
+      .join("text")
+        .attr("class", "tick-label")
+        .attr("x", d => rScale(d))
+        .attr("y", 0)
+        .attr("dy", "-0.3em")
+        .attr("text-anchor", "middle")
+        .style("fill", "#666")
+        .style("font-size", "10px")
+        .text(d => d);
 
     displayResults.forEach(result => {
       let path = g.selectAll(`.radial-path-${result.id}`)
@@ -265,7 +282,7 @@ svg.append("text")
   .attr("text-anchor", "middle")
   .style("font-size", "16px")
   .style("font-family", "sans-serif")
-  .text("Erinevate majapidamiste ühe päeva tarbimine")
+  .text("Erinevate majapidamiste ühe päeva tarbimine (kWh)")
   .append("tspan")
         .attr("x", width / 2)
         .attr("dy", "1.5em")
