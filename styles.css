@@ -1,0 +1,97 @@
+body {
+  font-family: sans-serif;
+}
+.arc {
+  stroke: #fff;
+  stroke-width: 1px;
+}
+.axis-circle {
+  fill: none;
+  stroke: #ccc;
+  stroke-dasharray: 2 2;
+}
+.hour-label {
+  font-size: 10px;
+  text-anchor: middle;
+}
+.first-svg {
+  margin-bottom: 20px;
+}
+
+body {
+  font-family: sans-serif;
+}
+.layer {
+  fill-opacity: 0.8;
+  stroke: none;
+}
+.axis path,
+.axis line {
+  stroke: #000;
+}
+
+body {
+  font-family: sans-serif;
+}
+.area {
+  fill: #114d7f;
+  fill-opacity: 0.1;
+  stroke: none;
+}
+.axis {
+  font: 10px sans-serif;
+}
+.hour-label {
+  fill: #8a9dad;
+
+}
+.tick-circle {
+  fill: none;
+  stroke: #ccc;
+  stroke-dasharray: 2 2;
+}
+
+.large-title {
+  font-size: 30px;
+  fill: #6b89a1;
+  font-weight: 600
+}
+
+.middle-title {
+  font-size: 16px;
+  fill: #6b89a1;
+  font-weight: 600
+}
+
+.small-title {
+  font-size: 12px;
+  fill: #8a9dad;
+}
+
+input[type="date"] {
+    border: none;
+    color: #6b89a1;
+    opacity: 0;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  width: 100%;
+}
+
+#legend {
+  width: 400px;
+  display:inline-block;
+  height: 550px;
+  margin-top: 30px;
+  margin-left: 3rem;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.svg-container {
+  display:flex;
+}
